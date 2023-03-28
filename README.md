@@ -38,6 +38,6 @@
    sfdx force:org:open
    ```
 
-1. Execute examples on the [scripts/graphql]('/scripts/graphql') folder using a GraphQL client such as Altair. Instructions to set it up [here](https://developer.salesforce.com/docs/platform/graphql/guide/get-started-graphql.html).
+1. Execute examples on the [scripts/graphql]('scripts/graphql') folder using a GraphQL client such as Altair. Instructions to set it up [here](https://developer.salesforce.com/docs/platform/graphql/guide/get-started-graphql.html).
 
 
