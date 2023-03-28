@@ -1,0 +1,8 @@
+query rateLimit {
+    rateLimit {
+        cost
+        limit
+        remaining
+        resetAt
+    }
+}

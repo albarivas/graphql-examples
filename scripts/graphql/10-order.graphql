@@ -1,0 +1,17 @@
+# SELECT Name FROM Conference__c ORDER BY Name
+query orderConferences {
+    uiapi {
+        query {
+            Conference__c(orderBy: { Name: { order: ASC, nulls: FIRST } }) {
+                edges {
+                    node {
+                        Id
+                        Name {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

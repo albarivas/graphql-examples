@@ -1,0 +1,21 @@
+# SELECT Title__c, Conference__r.Name FROM Talk__c
+query allTalksWithTheirConference {
+    uiapi {
+        query {
+            Talk__c {
+                edges {
+                    node {
+                        Title__c {
+                            value
+                        }
+                        Conference__r {
+                            Name {
+                                value
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

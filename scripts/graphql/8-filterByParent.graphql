@@ -1,0 +1,22 @@
+# SELECT Title__c FROM Talk__c WHERE Conference__r.Name = 'dreamOlé 2023'
+query filteredTalksByParent {
+    uiapi {
+        query {
+            Talk__c(
+                where: {
+                    Conference__r: {
+                        Name: { eq: "dreamOlé 2023" }
+                    }
+                }
+            ) {
+                edges {
+                    node {
+                        Title__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

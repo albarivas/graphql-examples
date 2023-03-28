@@ -1,0 +1,20 @@
+# SELECT Title__c FROM Talk__c WHERE Duration__c = :duration
+query filteredTalks($duration: Double) {
+    uiapi {
+        query {
+            Talk__c(
+                where: {
+                    Duration__c: { eq: $duration }
+                }
+            ) {
+                edges {
+                    node {
+                        Title__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+# SELECT Id, (SELECT Title__c FROM Talks__r) FROM Conference__c
+query conferencesWithTheirTalks {
+    uiapi {
+        query {
+            Conference__c {
+                edges {
+                    node {
+                        Id
+                        Name {
+                            value
+                        }
+                        Country__c {
+                            value
+                        }
+                        Talks__r {
+                            edges {
+                                node {
+                                    Title__c {
+                                        value
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

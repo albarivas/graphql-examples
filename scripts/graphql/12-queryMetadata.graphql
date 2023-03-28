@@ -1,0 +1,15 @@
+query conferenceAndTalkObjectInfo {
+    uiapi {
+        objectInfos(apiNames: ["Conference__c", "Talk__c"]) {
+            ApiName
+            childRelationships {
+                childObjectApiName
+                relationshipName
+                objectInfo {
+                    ApiName
+                    queryable
+                }
+            }
+        }
+    }
+}

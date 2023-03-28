@@ -1,0 +1,18 @@
+query filteredTalks($includeDuration: Boolean!) {
+    uiapi {
+        query {
+            Talk__c {
+                edges {
+                    node {
+                        Title__c {
+                            value
+                        }
+                        Duration__c @include(if: $includeDuration){
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

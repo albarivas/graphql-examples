@@ -1,0 +1,25 @@
+# SELECT Id, Title__c, Abstract__c FROM Talk__c WHERE Duration__c >= 30 AND Speakers__c = 'Pablo González'
+query filteredTalks {
+    uiapi {
+        query {
+            Talk__c(
+                where: {
+                    Duration__c: { gte: 30 }
+                    Speakers__c: { eq: "Pablo González" }
+                }
+            ) {
+                edges {
+                    node {
+                        Id
+                        Title__c {
+                            value
+                        }
+                        Abstract__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

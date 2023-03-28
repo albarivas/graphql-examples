@@ -1,0 +1,20 @@
+# SELECT Id, Name, Country__c FROM Conference__c
+query allConferences {
+    uiapi {
+        query {
+            Conference__c {
+                edges {
+                    node {
+                        Id
+                        Name {
+                            value
+                        }
+                        Country__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

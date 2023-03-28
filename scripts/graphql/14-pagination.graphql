@@ -1,0 +1,44 @@
+# Returns 10 records by default
+query paginatedTalksFirstPage {
+    uiapi {
+        query {
+            Talk__c {
+                edges {
+                    node {
+                        Title__c {
+                            value
+                        }
+                    }
+                }
+                totalCount
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                }
+            }
+        }
+    }
+}
+# SELECT Title__c FROM Talk__c LIMIT 5 OFFSET 10
+query paginatedTalksNextPage {
+    uiapi {
+        query {
+            Talk__c (first:5, after:"djE6OQ==") {
+                edges {
+                    node {
+                        Title__c {
+                            value
+                        }
+                    }
+                }
+                totalCount
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                }
+            }
+        }
+    }
+}

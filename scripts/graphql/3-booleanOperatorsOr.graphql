@@ -1,0 +1,27 @@
+# SELECT Id, Title__c, Abstract__c FROM Talk__c WHERE Speakers__c = 'Alba Rivas' OR Speakers__c = 'Ankit Taneja'
+query filteredTalks {
+    uiapi {
+        query {
+            Talk__c(
+                where: {
+                    or: [
+                        { Speakers__c: { eq: "Alba Rivas" } }
+                        { Speakers__c: { eq: "Ankit Taneja" } }
+                    ]
+                }
+            ) {
+                edges {
+                    node {
+                        Id
+                        Title__c {
+                            value
+                        }
+                        Abstract__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

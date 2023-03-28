@@ -1,0 +1,20 @@
+query conferenceObjectInfoAndRecords {
+    uiapi {
+        objectInfos(apiNames: ["Conference__c"]) {
+            fields {
+              ApiName
+            }
+        },
+        query {
+            Conference__c {
+                edges {
+                    node {
+                        Name {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

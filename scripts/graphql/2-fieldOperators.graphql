@@ -1,0 +1,24 @@
+# SELECT Id, Title__c, Abstract__c FROM Talk__c WHERE Duration__c = 30
+query filteredTalks {
+    uiapi {
+        query {
+            Talk__c(
+                where: {
+                    Duration__c: { eq: 30 }
+                }
+            ) {
+                edges {
+                    node {
+                        Id
+                        Title__c {
+                            value
+                        }
+                        Abstract__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

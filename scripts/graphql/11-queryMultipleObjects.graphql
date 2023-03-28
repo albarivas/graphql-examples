@@ -1,0 +1,26 @@
+query allConferencesAndTalks {
+    uiapi {
+        query {
+            Conference__c {
+                edges {
+                    node {
+                        Id
+                        Name {
+                            value
+                        }
+                    }
+                }
+            }
+            Talk__c {
+                edges {
+                    node {
+                        Id
+                        Title__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+query allConferencesAndTalks {
+    uiapi {
+        query {
+            Conference__c {
+                edges {
+                    node {
+                        ...fields
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment fields on Conference__c {
+    Id
+    Name {
+      value
+    }
+    CreatedDate {
+      value
+    }
+}

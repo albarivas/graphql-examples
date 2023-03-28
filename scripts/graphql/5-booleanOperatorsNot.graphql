@@ -1,0 +1,26 @@
+# SELECT Id, Title__c, Abstract__c FROM Talk__c WHERE  Speakers__c != 'Alba Rivas'
+query filteredTalks {
+    uiapi {
+        query {
+            Talk__c(
+                where: {
+                    not: {
+                        Speakers__c: { eq: "Alba Rivas" }
+                    }
+                }
+            ) {
+                edges {
+                    node {
+                        Id
+                        Title__c {
+                            value
+                        }
+                        Abstract__c {
+                            value
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
