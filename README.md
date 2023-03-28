@@ -1,18 +1,43 @@
-# Salesforce DX Project: Next Steps
+# GraphQL Examples
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+# Code Examples that show how to work with the Salesforce GraphQL API
 
-## How Do You Plan to Deploy Your Changes?
+1. Clone the repo:
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+   ```
+   git clone git@github.com:albarivas/graphql-examples.git
+   ```
 
-## Configure Your Salesforce DX Project
+1. If you haven't already done so, authorize with your hub org and provide it with an alias (**myhuborg** in the command below):
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+   ```
+   sfdx force:auth:web:login -d -a myhuborg
+   ```
 
-## Read All About It
+1. Create a scratch org and provide it with an alias (**graphql-examples** in the command below):
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+   ```
+   sfdx force:org:create -s -f config/project-scratch-def.json -a graphql-examples
+   ```
+
+1. Push the app to your scratch org:
+
+   ```
+   sfdx force:source:push
+   ```
+
+1. Assign the **Community_Conferences** permission set to the default user:
+
+   ```
+   sfdx force:user:permset:assign -n Community_Conferences
+   ```
+
+1. Open the scratch org:
+
+   ```
+   sfdx force:org:open
+   ```
+
+1. Execute examples on the [scripts/graphql]('/scripts/graphql') folder using a GraphQL client such as Altair. Instructions to set it up [here](https://developer.salesforce.com/docs/platform/graphql/guide/get-started-graphql.html).
+
+
