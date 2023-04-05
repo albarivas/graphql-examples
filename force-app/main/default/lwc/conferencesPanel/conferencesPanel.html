@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <template lwc:if={conferences}>
+            <div class="slds-p-horizontal_small">
+                <template for:each={conferences} for:item="conference">
+                    <div class="slds-text-heading_medium" key={conference.Id}>
+                        {conference.Name.value}
+                    </div>
+                    <template
+                        for:each={conference.Talks__r.edges}
+                        for:item="talk"
+                    >
+                        <c-talk-tile
+                            key={talk.node.Id}
+                            talk={talk.node}
+                            class="slds-m-around_medium"
+                        ></c-talk-tile>
+                    </template>
+                </template>
+            </div>
+        </template>
+        <template lwc:if={error}> {error} </template>
+    </lightning-card>
+</template>
