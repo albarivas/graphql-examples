@@ -2,7 +2,7 @@ import { LightningElement, wire } from 'lwc';
 import { gql, graphql } from 'lightning/uiGraphQLApi';
 
 export default class ConferencesPanel extends LightningElement {
-    error;
+    errors;
     conferences;
 
     @wire(graphql, {
@@ -41,17 +41,15 @@ export default class ConferencesPanel extends LightningElement {
             }
         `
     })
-    getConferencesWithTalks({ data, error }) {
+    getConferencesWithTalks({ data, errors }) {
         if (data) {
             this.conferences = data.uiapi.query.Conference__c.edges.map(
                 (edge) => edge.node
             );
-            //this.isFinalPage = !data.uiapi.query.Opportunity.pageInfo.hasNextPage;
-            //this.endCursor = data.uiapi.query.Opportunity.pageInfo.endCursor;
-            this.error = undefined;
-        } else if (error) {
+            this.errors = undefined;
+        } else if (errors) {
             this.conferences = undefined;
-            this.error = error;
+            this.errors = errors;
         }
     }
 }
