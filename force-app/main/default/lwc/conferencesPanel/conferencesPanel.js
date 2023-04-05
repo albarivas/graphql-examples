@@ -47,7 +47,8 @@ export default class ConferencesPanel extends LightningElement {
                 (edge) => edge.node
             );
             this.errors = undefined;
-        } else if (errors) {
+        }
+        if (errors) {
             this.conferences = undefined;
             this.errors = errors;
         }
